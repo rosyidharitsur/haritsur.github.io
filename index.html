@@ -7,49 +7,57 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background-color: #C0EBF8; 
-            font-family: 'Poppins', sans-serif;
-            color: #333;
-            /* Perubahan: Mengizinkan scroll ke bawah */
-            overflow-x: hidden; 
-            padding-bottom: 50px;
+        /* --- RESET & GLOBAL STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* --- HERO SECTION (Profil) --- */
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            overflow-x: hidden; /* Mencegah scroll menyamping yang tidak perlu */
+        }
+
+        /* --- BAGIAN 1: HERO (HOME) - WARNA PUTIH --- */
         .hero {
-            min-height: 100vh; /* Tinggi satu layar penuh */
+            background-color: #FFFFFF; /* Latar belakang PUTIH */
+            padding: 50px 20px 0 20px; /* Padding bawah 0 agar foto mepet ke batas biru */
             display: flex;
-            align-items: center;
             justify-content: center;
-            padding: 20px;
+            /* Mengatur agar konten menempel ke bawah section */
+            align-items: flex-end;
+            min-height: 80vh; /* Minimal tinggi agar tidak terlalu pendek di layar besar */
         }
 
         .container {
             display: flex;
-            align-items: center;
+            align-items: center; /* Vertikal center antara teks dan foto */
             justify-content: center;
-            gap: 30px;
+            gap: 40px;
             max-width: 1100px;
             width: 100%;
         }
 
         .profile-img {
-            max-height: 80vh;
+            max-height: 75vh; /* Tinggi foto disesuaikan */
             width: auto;
             object-fit: contain;
-            filter: drop-shadow(10px 10px 20px rgba(0,0,0,0.15));
+            filter: drop-shadow(10px 10px 20px rgba(0,0,0,0.1));
+            /* Trik agar gambar benar-benar duduk di garis batas */
+            display: block;
+            margin-bottom: -2px; 
         }
 
         .text-content {
             display: flex;
             flex-direction: column;
             justify-content: center;
+            padding-bottom: 50px; /* Memberi sedikit ruang agar teks tidak terlalu turun */
         }
 
         h1 {
@@ -57,7 +65,7 @@
             color: #1A1A1A;
             font-weight: 700;
             line-height: 1.2;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
 
         .subtitle-wrapper {
@@ -66,66 +74,102 @@
             gap: 15px;
         }
 
-        h2 { font-size: 1.5rem; font-weight: 500; }
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #555;
+        }
         
-        .software-icons { height: 30px; width: auto; }
+        .software-icons {
+            height: 32px;
+            width: auto;
+        }
 
-        /* --- PROJECTS SECTION (Baru) --- */
+        /* --- BAGIAN 2: PROJECTS (GALERI) - WARNA BIRU --- */
         .projects {
+            background-color: #C0EBF8; /* Latar belakang BIRU */
+            padding: 60px 20px 80px 20px; /* Padding atas bawah yang cukup */
+        }
+
+        .section-header {
             max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
+            margin: 0 auto 40px auto;
+            text-align: center;
         }
 
         .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 30px;
+            font-size: 2.2rem;
             color: #1A1A1A;
             font-weight: 700;
         }
 
         .grid-container {
             display: grid;
-            /* Grid otomatis: menyesuaikan jumlah kolom berdasarkan lebar layar */
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            /* Grid responsif: otomatis mengatur jumlah kolom */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
         .project-card {
             background: white;
-            padding: 15px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
+            padding: 12px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-5px); /* Efek naik saat di-hover */
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
         .project-img {
             width: 100%;
             height: auto;
-            border-radius: 10px;
+            border-radius: 12px;
             display: block;
         }
 
-        .project-title {
-            margin-top: 15px;
-            font-weight: 600;
+        .project-info {
+            padding: 15px 5px 5px 5px;
             text-align: center;
-            color: #444;
         }
 
-        /* RESPONSIVE: HP */
+        .project-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES (Untuk HP) --- */
         @media (max-width: 768px) {
-            .hero { height: auto; padding: 60px 20px; }
-            .container { flex-direction: column; text-align: center; }
-            .profile-img { max-height: 50vh; margin-bottom: 20px; }
-            .subtitle-wrapper { flex-direction: column; gap: 10px; }
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.2rem; }
+            .hero {
+                padding: 40px 20px 0 20px;
+                align-items: center;
+                min-height: auto;
+            }
+            .container {
+                flex-direction: column-reverse; /* Foto di atas, teks di bawah di HP */
+                text-align: center;
+                gap: 20px;
+            }
+            .profile-img {
+                max-height: 45vh;
+                margin-bottom: 0;
+            }
+            .text-content {
+                padding-bottom: 30px;
+            }
+            .subtitle-wrapper {
+                flex-direction: column;
+                gap: 10px;
+                justify-content: center;
+            }
+            h1 { font-size: 2.4rem; }
+            h2 { font-size: 1.3rem; }
+            .section-title { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -133,7 +177,6 @@
 
     <section class="hero">
         <div class="container">
-            <img src="assets/foto.webp" alt="Avatar Moh. Haritsur Rosyid" class="profile-img">
             <div class="text-content">
                 <h1>Moh. Haritsur Rosyid</h1>
                 <div class="subtitle-wrapper">
@@ -141,30 +184,38 @@
                     <img src="assets/logo.svg" alt="Software Skills" class="software-icons">
                 </div>
             </div>
+            <img src="assets/foto.webp" alt="Avatar 3D" class="profile-img">
         </div>
     </section>
 
     <section class="projects">
-        <h3 class="section-title">Hasil Karya</h3>
-
-                <div class="grid-container">
-            <div class="project-card">
-                <img src="assets/ae.webp" alt="Motion After Effect" class="project-img">
-                <div class="project-title">Presentation Design</div>
-            </div>
+        <div class="section-header">
+            <h3 class="section-title">Selected Works</h3>
+        </div>
         
         <div class="grid-container">
             <div class="project-card">
-                <img src="assets/ppt.webp" alt="Desain Presentasi PPT" class="project-img">
-                <div class="project-title">Presentation Design</div>
+                <img src="assets/ppt.webp" alt="Proyek Presentasi" class="project-img">
+                <div class="project-info">
+                    <div class="project-title">Interactive Presentation</div>
+                </div>
             </div>
 
             <div class="project-card">
-                <img src="assets/ps.webp" alt="Desain Photoshop" class="project-img">
-                <div class="project-title">Photo Manipulation</div>
+                <img src="assets/ps.webp" alt="Proyek Photoshop" class="project-img">
+                <div class="project-info">
+                    <div class="project-title">Creative Imaging</div>
+                </div>
             </div>
 
+            <div class="project-card">
+                <img src="assets/ps.webp" alt="Proyek Lainnya" class="project-img">
+                <div class="project-info">
+                    <div class="project-title">Data Visualization Dashboard</div>
+                </div>
             </div>
+
+        </div>
     </section>
 
 </body>
