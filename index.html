@@ -1,1 +1,132 @@
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moh. Haritsur Rosyid - Creative Data Analyst</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* Warna background biru muda sesuai gambar */
+            background-color: #C0EBF8; 
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Mencegah scroll jika tidak perlu */
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px; /* Jarak antara foto dan teks */
+            max-width: 1200px;
+            width: 90%;
+        }
+
+        /* Bagian Foto (Kiri) */
+        .profile-img {
+            max-height: 85vh; /* Tinggi foto menyesuaikan layar */
+            width: auto;
+            object-fit: contain;
+            /* Filter drop-shadow halus agar menyatu dengan background */
+            filter: drop-shadow(10px 10px 20px rgba(0,0,0,0.15));
+        }
+
+        /* Bagian Teks (Kanan) */
+        .text-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 3.5rem; /* Ukuran nama besar */
+            color: #1A1A1A; /* Warna hitam soft */
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 5px;
+        }
+
+        .subtitle-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Jarak antara tulisan jabatan dan logo */
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #333333;
+            font-weight: 500;
+        }
+
+        .software-icons {
+            height: 30px; /* Tinggi logo software disesuaikan */
+            width: auto;
+            display: block;
+        }
+
+        /* RESPONSIVE: Tampilan untuk HP (Layar kecil) */
+        @media (max-width: 768px) {
+            body {
+                height: auto;
+                min-height: 100vh;
+                padding: 40px 0;
+            }
+
+            .container {
+                flex-direction: column; /* Ubah jadi atas-bawah */
+                text-align: center;
+            }
+
+            .profile-img {
+                max-height: 50vh;
+                margin-bottom: 20px;
+            }
+
+            .subtitle-wrapper {
+                flex-direction: column; /* Jabatan dan logo jadi atas-bawah di HP */
+                gap: 10px;
+                justify-content: center;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <img src="/assets/foto.webp" alt="Avatar Moh. Haritsur Rosyid" class="profile-img">
+
+        <div class="text-content">
+            <h1>Moh. Haritsur Rosyid</h1>
+            
+            <div class="subtitle-wrapper">
+                <h2>Creative Data Analyst</h2>
+                <img src="/assets/logo.svg" alt="Software Skills" class="software-icons">
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
